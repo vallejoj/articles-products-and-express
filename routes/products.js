@@ -4,17 +4,11 @@ const express = require('express');
 const router = express.Router();
 const app = express();
 
-
-
-
-
-
-// /products
-//GET, POST
-
 router.route('/')
   .get((req, res) => {
     console.log('this is products');
+
+
   });
 
 
