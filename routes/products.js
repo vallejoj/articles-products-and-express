@@ -6,7 +6,7 @@ const app = express();
 const bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 let id= 0
-var products = [];
+var products = [{ "id":"1", "name": "Pooppps", "price": "1300", "inventory": "25" }];
 
 
 // '/produts' - POST
@@ -28,7 +28,7 @@ router.route('/')
 
 router.route(`/:id`)
 .get((req, res) => {
-    res.render('products/product');
+    res.render('products/product', {products:products});
 })
 .put(jsonParser, (req, res) => {
 
@@ -51,7 +51,6 @@ router.route(`/:id`)
 
       }
     })
-
 });
 
 
@@ -60,14 +59,13 @@ router.route(`/:id`)
 
 
 // '/products/:id/edit - GET
-router.route('/:id/edit')
-  .get((req, res) => {
-
+router.get('/:id/edit', (req, res) => {
+  res.render('products/edit', {products:products});
 });
 
 // '/products/new - GET
-router.route('/new')
-  .get((req, res) => {
-
+router.get('/new/new', (req, res) => {
+  res.render('products/new', {products:products});
 });
+
  module.exports = router;
