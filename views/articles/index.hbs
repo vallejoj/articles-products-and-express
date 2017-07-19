@@ -1,1 +1,10 @@
-Index
+<p>Index Page</p>
+{{#each articles}}
+<div class="article">
+<h1>Title:{{articles.title}}</h1>
+<p> Body:{{body}}</p>
+<p> Author:{{author}}</p>
+
+</div>
+
+{{/each}}
