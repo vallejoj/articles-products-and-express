@@ -31,22 +31,26 @@ router.route(`/:id`)
     res.render('products/product');
 })
 .put(jsonParser, (req, res) => {
-  console.log("these are the "+ req.body.name)
+
     products.forEach((item) => {
-      console.log("the "+ req.params.id)
-      console.log(item.id)
       if (item.id == req.params.id ){
         item.name= req.body.name
-        console.log("look at the"+ item.name)
-
       }else{
-        console.log('poo')
-
+        res.redirect('/new')
       }
     })
 
 })
   .delete((req, res) => {
+    products.forEach((item) => {
+
+      if (item.id == req.params.id ){
+          var findIDToDelete = products.indexOf(item)
+          products.splice(findIDToDelete,1);
+      }else{
+
+      }
+    })
 
 });
 
