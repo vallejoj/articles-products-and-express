@@ -6,7 +6,7 @@ const app = express();
 const bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 let id= 0
-var products = [{ "id":"1", "name": "Pooppps", "price": "1300", "inventory": "25" }];
+var products = [];
 
 
 // '/produts' - POST
