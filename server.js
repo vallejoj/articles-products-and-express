@@ -18,24 +18,6 @@ app.set('view engine', 'hbs');
 app.use('/products', products);
 app.use('/articles', articles);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const server = app.listen(PORT, () =>{
   console.log(`Running on ${PORT}`);
 });
