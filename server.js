@@ -6,7 +6,15 @@ var articles = require('./routes/articles.js');
 const app = express();
 const PORT = process.envPORT || 3000;
 
-//console.log(products);
+const hbs = exphbs.create({
+  defaultLayout: 'main',
+  extname: 'hbs'
+});
+
+app.engine('hbs', hbs.engine);
+app.set('view engine', 'hbs');
+
+
 app.use('/products', products);
 app.use('/articles', articles);
 
