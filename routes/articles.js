@@ -9,8 +9,6 @@ var articles = [];
 
 
 
-
-
 router.route('/')
 .get((req,res)=>{
   res.render('articles/index')
@@ -52,11 +50,5 @@ router.route(`/:title`)
       }
     })
 });
-
-
-
-
-
-
 
 module.exports = router;
