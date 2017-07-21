@@ -6,8 +6,6 @@ const bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 var articles = [];
 
-
-
 router.route('/')
   .get((req,res)=>{ //<--renders HTML with all articles
     res.render('articles/index', {
@@ -22,7 +20,7 @@ router.route('/')
          "author": req.body.author,
          "urlTitle":encodeURI(req.body.title)
        });
-      console.log(articles)
+      console.log(articles);
       res.redirect('articles/');
       } else {
       res.redirect('/new');
@@ -37,10 +35,10 @@ router.route(`/:urlTitle`)
       res.render('articles/article', {
         articles: item
       });
-    } else {
-      console.log('fuck my life');
+      } else {
+      //code block
     }
-  })
+  });
 })
   .put(jsonParser, (req, res) => { //<--update article infromation
     articles.forEach((item) => {
@@ -48,7 +46,7 @@ router.route(`/:urlTitle`)
         item.title= req.body.title;
         }else{
       }
-    })
+    });
   })
   .delete((req, res) => { //<--removes an articel by title
     articles.forEach((item) => {
