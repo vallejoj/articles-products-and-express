@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const app = express();
 const bodyParser = require('body-parser');
-var methodOverride = require('method-override')
+
 var jsonParser = bodyParser.json();
 
 
@@ -55,8 +55,11 @@ router.route(`/:id`)
       }
     });
   })
-  .put((req, res) => { //<--edits a product
+  .put((req, res) => {
+      console.log('put is working')//<--edits a product
+
     products.forEach((item) => {
+      console.log('put is working')
       item.name = req.body.name;
         res.redirect('/products');
           console.log(item);
