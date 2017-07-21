@@ -13,8 +13,9 @@ const hbs = exphbs.create({
 
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
+app.use('/css', express.static('css'));
 
-app.use(bp.urlencoded())
+app.use(bp.urlencoded());
 app.use('/products', products);
 app.use('/articles', articles);
 
