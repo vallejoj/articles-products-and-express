@@ -28,25 +28,25 @@ router.route('/')
   });
 
 
-router.get('/:id/edit', (req, res) => { //<--renders HTML generated from templates
+router.get('/:id/edit', (req, res) => { //<--renders HTML generated from templates (update a product)
   res.render('products/edit', {
     products: products
   });
 });
 
-router.get('/new', (req, res) => {
+router.get('/new', (req, res) => { //<--renders HTML generated from templates (form to create product)
   res.render('new', {
     products: products
   });
 });
 
 router.route(`/:id`)
-  .get((req, res) => {
+  .get((req, res) => { //<--renders HTML generated from templates (display product by ID)
     res.render('products/product', {
       products: products
     });
   })
-  .put((req, res) => {
+  .put((req, res) => { //<--edits a product
     products.forEach((item) => {
       if (item.id == req.params.id) {
         item.name = req.body.name;
@@ -57,7 +57,7 @@ router.route(`/:id`)
       }
     });
   })
-  .delete((req, res) => {
+  .delete((req, res) => { //<--removes product by ID
     products.forEach((item) => {
       if (item.id == req.params.id) {
         var findIDToDelete = products.indexOf(item);
