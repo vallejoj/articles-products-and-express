@@ -6,18 +6,14 @@ var articles = require('./routes/articles.js');
 const app = express();
 const PORT = process.envPORT || 3000;
 const bp = require('body-parser');
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
 const hbs = exphbs.create({
   defaultLayout: 'main',
   extname: 'hbs'
 });
-
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.use('/css', express.static('css'));
-
-
-app.use(bp.urlencoded());
 // app.use(methodOverride('X-HTTP-Method-Override'));
 // app.use(methodOverride(function (req, res) {
 //   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
@@ -27,11 +23,9 @@ app.use(bp.urlencoded());
 //     return method
 //   }
 // }));
-app.use(methodOverride('_method'))
-
+app.use(methodOverride('_method'));
 app.use('/products', products);
 app.use('/articles', articles);
-
 const server = app.listen(PORT, () =>{
   console.log(`Running on ${PORT}`);
 });
