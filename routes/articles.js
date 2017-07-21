@@ -42,7 +42,7 @@ router.route(`/:title`)
     });
   })
   .delete((req, res) => { //<--removes an articel by title
-    products.forEach((item) => {
+    articles.forEach((item) => {
       if (item.id == req.params.id ){
         var findIDToDelete = articles.indexOf(item);
         articles.splice(findIDToDelete,1);
