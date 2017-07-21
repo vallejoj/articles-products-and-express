@@ -7,7 +7,7 @@ var jsonParser = bodyParser.json();
 
 
 let id = 0;
-var products = [];
+var products = [{ id: "0", name: "String", price: "Number", inventory: "Number" }];
 
 router.route('/')
   .get((req, res) => { //<--renders HTML with all products
@@ -18,7 +18,7 @@ router.route('/')
   .post(jsonParser,(req, res) => { //<--creates a new product
     if (typeof req.body === 'object') { //<--need to change this to validate data that is a new product
       products.push({
-        "id": id++,
+        "id": `${id++}`,
         "name": req.body.name,
         "price": req.body.price,
         "inventory": req.body.inventory
@@ -43,8 +43,15 @@ router.get('/new', (req, res) => { //<--renders HTML generated from templates (f
 
 router.route(`/:id`)
   .get((req, res) => { //<--renders HTML generated from templates (display product by ID)
-    res.render('products/product', {
-      products: products
+    products.forEach((item) => {
+      if (req.params.id === item.id){
+        console.log('this is the item.id: ', item);
+        res.render('products/product', {
+          products: item
+        });
+      } else {
+        console.log('fuck my life');
+      }
     });
   })
   .put((req, res) => { //<--edits a product
