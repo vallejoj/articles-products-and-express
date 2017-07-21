@@ -2,6 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
+const bodyParser = require('body-parser');
+var jsonParser = bodyParser.json();
 
 
 let id = 0;
@@ -13,8 +15,8 @@ router.route('/')
       products: products
     });
   })
-  .post((req, res) => { //<--creates a new product
-    if (typeof req.body === 'object') {
+  .post(jsonParser,(req, res) => { //<--creates a new product
+    if (typeof req.body === 'object') { //<--need to change this to validate data that is a new product
       products.push({
         "id": id++,
         "name": req.body.name,
