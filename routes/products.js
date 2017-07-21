@@ -8,12 +8,12 @@ let id = 0;
 var products = [];
 
 router.route('/')
-  .get((req, res) => {
+  .get((req, res) => { //<--renders HTML with all products
     res.render('products/index', {
       products: products
     });
   })
-  .post((req, res) => {
+  .post((req, res) => { //<--creates a new product
     if (typeof req.body === 'object') {
       products.push({
         "id": id++,
@@ -21,7 +21,6 @@ router.route('/')
         "price": req.body.price,
         "inventory": req.body.inventory
       });
-      console.log(products);
       res.redirect('/products/product');
       } else {
       res.redirect('/products/new');
@@ -29,7 +28,7 @@ router.route('/')
   });
 
 
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', (req, res) => { //<--renders HTML generated from templates
   res.render('products/edit', {
     products: products
   });
