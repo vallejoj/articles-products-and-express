@@ -1,19 +1,16 @@
-<p>Index Page</p>
-
+<h1>Add & View all Products</h1>
 <form action="/products" method="post">
-Name: <input type="text" name="name"><br>
-Price: <input type="text" name="price"><br>
-Inventory <input type="text" name="inventory"><br>
-<input type="submit" value="Submit">
+  Name: <input type="text" name="name"><br>
+  Price: <input type="text" name="price"><br>
+  Inventory <input type="text" name="inventory"><br>
+  <input type="submit" value="Submit">
 </form>
 
 {{#each products}}
 <div class="products">
-
-<h1>Name:{{name}}</h1>
-<p>ID:{{id}}</p>
-<p>Price:{{price}}</p>
-<p>Inventory:{{inventory}}</p>
+  <h2>Name:{{name}}</h2>
+  <h2>ID:{{id}}</h2>
+  <h2>Price:{{price}}</h2>
+  <h2>Inventory:{{inventory}}</h2>
 </div>
-
 {{/each}}
