@@ -7,7 +7,7 @@ var jsonParser = bodyParser.json();
 
 
 let id = 0;
-var products = [{ "id":"0", "name": "truth ", "price": "130", "inventory": "25" }];
+var products = [];
 
 router.route('/')
   .get((req, res) => { //<--renders HTML with all products

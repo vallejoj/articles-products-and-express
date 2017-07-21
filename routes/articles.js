@@ -10,13 +10,19 @@ var articles = [];
 
 router.route('/')
   .get((req,res)=>{ //<--renders HTML with all articles
-    res.render('articles/index');
+    res.render('articles/index', {
+      articles:articles
+    });
   })
   .post((req, res) =>{ //<--creates new article; use encodeURI()for creating encode URI titles
     if (typeof req.body === 'object'){
-
-      articles.push({ "title":req.body.title , "body": req.body.body, "author": req.body.author, "urlTitle":encodeURI(req.body.title)});
-        console.log(articles)
+      articles.push({
+        "title":req.body.title ,
+        "body": req.body.body,
+         "author": req.body.author,
+         "urlTitle":encodeURI(req.body.title)
+       });
+      console.log(articles)
       res.redirect('articles/');
       } else {
       res.redirect('/new');
