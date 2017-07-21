@@ -7,7 +7,7 @@ var jsonParser = bodyParser.json();
 
 
 let id = 0;
-var products = [];
+var products = [{ "id":"0", "name": "truth ", "price": "130", "inventory": "25" }];
 
 router.route('/')
   .get((req, res) => { //<--renders HTML with all products
@@ -23,7 +23,7 @@ router.route('/')
         "price": req.body.price,
         "inventory": req.body.inventory
       });
-      res.redirect('/products/product');
+      res.redirect('/products');
       } else {
       res.redirect('/products/new');
     }
@@ -49,14 +49,13 @@ router.route(`/:id`)
   })
   .put((req, res) => { //<--edits a product
     products.forEach((item) => {
-      if (item.id == req.params.id) {
-        item.name = req.body.name;
-        res.redirect('/products/product');
-        console.log(item);
-        } else {
-        res.redirect('/new');
-      }
+      item.name = req.body.name;
+        res.redirect('/products');
+          console.log(item);
     });
+
+
+
   })
   .delete((req, res) => { //<--removes product by ID
     products.forEach((item) => {

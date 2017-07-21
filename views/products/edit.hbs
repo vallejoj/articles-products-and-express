@@ -1,5 +1,7 @@
 <h1>Edit</h1>
-<form action="/products/:id/edit" method="put">
+
+<form action="/products/:id/edit" method="post">
+  <input type="hidden" name="_method" value="PUT">
   ID: <input type="text" name="id"><br>
 Name: <input type="text" name="name"><br>
 
