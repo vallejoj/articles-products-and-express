@@ -27,7 +27,6 @@ router.route('/')
     }
   });
 
-
 router.get('/:id/edit', (req, res) => { //<--renders HTML generated from templates (update a product)
   res.render('products/edit', {
     products: products
