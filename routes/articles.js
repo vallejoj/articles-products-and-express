@@ -29,17 +29,26 @@ router.route('/')
   }
 });
 
-router.route(`/:title`)
-  .get((req, res) => { //<--renders HTML generated from templates displaying article info by title
-    res.render('articles/article', {articles});
+router.route(`/:urlTitle`)
+  .get((req, res) => {
+     articles.forEach((item) => {
+    if (req.params.urlTitle === item.urlTitle){
+      console.log('this is the item.id: ', item);
+      res.render('articles/article', {
+        articles: item
+      });
+    } else {
+      console.log('fuck my life');
+    }
   })
+})
   .put(jsonParser, (req, res) => { //<--update article infromation
     articles.forEach((item) => {
       if (item.urlTitle == req.params.urlTitle ){
         item.title= req.body.title;
         }else{
       }
-    });
+    })
   })
   .delete((req, res) => { //<--removes an articel by title
     articles.forEach((item) => {
