@@ -1,10 +1,18 @@
 <p>Index Page</p>
-{{#each articles}}
-<div class="article">
-<h1>Title:{{articles.title}}</h1>
-<p> Body:{{body}}</p>
-<p> Author:{{author}}</p>
 
+<form action="/articles" method="post">
+Name: <input type="text" name="title"><br>
+Body: <input type="text" name="body"><br>
+Author <input type="text" name="author"><br>
+<input type="submit" value="Submit">
+</form>
+
+{{#each articles}}
+<div class="articles">
+
+<h1>Title:{{title}}</h1>
+<p>Body:{{body}}</p>
+<p>Author:{{author}}</p>
 </div>
 
 {{/each}}

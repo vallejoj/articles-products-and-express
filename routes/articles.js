@@ -12,10 +12,12 @@ router.route('/')
   .get((req,res)=>{ //<--renders HTML with all articles
     res.render('articles/index');
   })
-  .post(jsonParser,(req, res) =>{ //<--creates new article; use encodeURI()for creating encode URI titles
+  .post((req, res) =>{ //<--creates new article; use encodeURI()for creating encode URI titles
     if (typeof req.body === 'object'){
+
       articles.push({ "title":req.body.title , "body": req.body.body, "author": req.body.author, "urlTitle":encodeURI(req.body.title)});
-      res.redirect('/');
+        console.log(articles)
+      res.redirect('articles/');
       } else {
       res.redirect('/new');
   }
