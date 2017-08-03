@@ -1,14 +1,20 @@
-const DataStore = []
-modules.exports = {
-  createProducts,
-  getProductsbyID,
-  deleteArticleByID
+const pgp = require('pg-promise')();
+
+const { DATABASE, USER, PASSWORD} = require(../config/config.json)
+
+const connectionOptions = {
+  host:'localhost',
+  port: 5432,
+  database: DATABASE,
+  user: USER,
+  password: PASSWORD
+}
+const db = pgp(connectionOptions)
+
+function getAllProducts(){
+return db.query('SELECT * FROM products')
 }
 
-function createProducts (products) {
-  DataStore.push(products);
-}
-
-function getProductbyID (id) {
-  // body...
+module.exports = {
+  getAllProducts: getAllProducts
 }

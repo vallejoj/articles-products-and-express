@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const app = express();
 const bodyParser = require('body-parser');
+const productsDB = require('./db/products.js')
 var jsonParser = bodyParser.json();
 let id = 0;
 var products = [{ id: "Test", name: "String", price: "Number", inventory: "Number" }];
