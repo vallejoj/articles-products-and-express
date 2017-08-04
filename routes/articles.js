@@ -3,7 +3,8 @@ const express = require('express');
 const router = express.Router();
 const app = express();
 const bodyParser = require('body-parser');
-const articlesDB = require('./db/articles.js')
+
+// const articlesDB = require('./db/articles.js')
 var jsonParser = bodyParser.json();
 var articles = [];
 

@@ -4,7 +4,7 @@ const { DATABASE, USER, PASSWORD} = require(../config/config.json)
 
 const connectionOptions = {
   host:'localhost',
-  port: 5432,
+  port: 3000,
   database: DATABASE,
   user: USER,
   password: PASSWORD

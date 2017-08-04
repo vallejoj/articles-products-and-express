@@ -14,16 +14,17 @@ const hbs = exphbs.create({
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.use('/css', express.static('css'));
-// app.use(methodOverride('X-HTTP-Method-Override'));
-// app.use(methodOverride(function (req, res) {
-//   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-//     // look in urlencoded POST bodies and delete it
-//     var method = req.body._method
-//     delete req.body._method
-//     return method
-//   }
-// }));
-app.use(methodOverride('_method'));
+app.use(bp.urlencoded())
+app.use(methodOverride('X-HTTP-Method-Override'));
+app.use(methodOverride(function (req, res) {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    var method = req.body._method
+    delete req.body._method
+    return method
+  }
+}));
+
 app.use('/products', products);
 app.use('/articles', articles);
 const server = app.listen(PORT, () =>{
