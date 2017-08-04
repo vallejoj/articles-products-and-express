@@ -1,6 +1,7 @@
+/*jshint esversion: 6 */
 const pgp = require('pg-promise')();
 
-const { DATABASE, USER, PASSWORD} = require('../config/config')
+const { DATABASE, USER, PASSWORD} = require('../config/config');
 
 const connectionOptions = {
   host:'localhost',
@@ -8,9 +9,9 @@ const connectionOptions = {
   database: DATABASE,
   user: USER,
   password: PASSWORD
-}
-const db = pgp(connectionOptions)
+};
+const db = pgp(connectionOptions);
 
 
 
-module.exports = db
+module.exports = db;
