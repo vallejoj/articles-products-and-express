@@ -4,10 +4,10 @@ const express = require('express');
 const router = express.Router();
 const app = express();
 const bodyParser = require('body-parser');
+const db = require ('../db')
 // const productsDB = require('./db/products.js')
 var jsonParser = bodyParser.json();
-let id = 0;
-var products = [];
+
 
 router.route('/')
   //WORKING
@@ -19,12 +19,9 @@ router.route('/')
   .post(jsonParser,(req, res) => { //<--creates a new product
 console.log('this is req.body',req.body)
     if (typeof req.body === 'object') { //<--need to change this to validate data that is a new product
-      products.push({
-        "id": `${id++}`,
-        "name": req.body.name,
-        "price": req.body.price,
-        "inventory": req.body.inventory
-      });
+///insert data
+
+      ;
       console.log(products)
       res.redirect('/products');
       } else {

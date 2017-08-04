@@ -1,7 +1,6 @@
 const pgp = require('pg-promise')();
 
-
-const { DATABASE, USER, PASSWORD} = require(../config/config.json)
+const { DATABASE, USER, PASSWORD} = require('../config/config')
 
 const connectionOptions = {
   host:'localhost',
@@ -12,10 +11,6 @@ const connectionOptions = {
 }
 const db = pgp(connectionOptions)
 
-function getAllArticles(){
-return db.query('SELECT * FROM articles')
-}
 
-module.exports = {
-  getAllArticles: getAllArticles
-}
+
+module.exports = db

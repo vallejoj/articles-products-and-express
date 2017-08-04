@@ -6,16 +6,17 @@ CREATE DATABASE products_articles WITH OWNER teamjosh;
 
 \c products_articles teamjosh
 
-DROP TABLE IF EXISTS products;
-CREATE TABLE product_table(
+DROP TABLE IF EXISTS products_table;
+
+CREATE TABLE products_table(
   id SERIAL NOT NULL PRIMARY KEY,
   name VARCHAR(30),
   price INT,
-  inventory INT,
+  inventory INT
 );
 
-INSERT INTO pizzas VALUES
-   (default, 'plain', 'cheese'),
-   (default,'supreme' , 'everything'),
-   (default,'tuscan', 'fanta'),
-   (default,'pineapple', 'pepperoni');
+INSERT INTO products_table VALUES
+   (default, 'pizza', 50, 100),
+   (default,'bottle' , 60, 100),
+   (default,'key', 66, 58),
+   (default,'monkey', 55, 90);
