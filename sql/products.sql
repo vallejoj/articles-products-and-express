@@ -16,7 +16,6 @@ CREATE TABLE products_table(
 );
 
 INSERT INTO products_table VALUES
-   (default, 'pizza', 50, 100),
    (default,'bottle' , 60, 100),
    (default,'key', 66, 58),
    (default,'monkey', 55, 90);
